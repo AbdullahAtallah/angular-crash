@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { TaskItem } from '../task-item/task-item';
 import { AddTask } from '../add-task/add-task';
 import { TaskService } from '../../services/task';
+import { Ui } from '../../services/ui';
 import { Task } from '../../Task';
 
 @Component({
@@ -12,6 +13,7 @@ import { Task } from '../../Task';
 })
 export class Tasks {
   private taskService = inject(TaskService);
+  protected ui = inject(Ui);
   tasks = signal<Task[]>([]);
 
   constructor() {
@@ -32,8 +34,8 @@ export class Tasks {
   }
 
   addTask(task: Task) {
-  this.taskService.addTask(task).subscribe((newTask) => {
-    this.tasks.update((tasks) => [...tasks, newTask]);
-  });
-}
+    this.taskService.addTask(task).subscribe((newTask) => {
+      this.tasks.update((tasks) => [...tasks, newTask]);
+    });
+  }
 }

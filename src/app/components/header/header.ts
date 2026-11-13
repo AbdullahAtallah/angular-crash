@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Button } from '../button/button';
+import { Ui } from '../../services/ui';
 
 @Component({
   imports: [Button],
@@ -8,8 +9,6 @@ import { Button } from '../button/button';
   templateUrl: './header.html',
 })
 export class Header {
-     title = 'Task Tracker';
-     toggleAddTask(){
-      console.log("Add Task");
-     }
+  title = 'Task Tracker';
+  protected ui = inject(Ui);
 }
