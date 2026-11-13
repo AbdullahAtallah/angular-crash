@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { TaskItem } from '../task-item/task-item';
+import { AddTask } from '../add-task/add-task';
 import { TaskService } from '../../services/task';
 import { Task } from '../../Task';
 
 @Component({
-  imports: [TaskItem],
+  imports: [TaskItem, AddTask],
   selector: 'app-tasks',
   styleUrl: './tasks.css',
   templateUrl: './tasks.html',
@@ -29,4 +30,10 @@ export class Tasks {
       this.tasks.update((tasks) => tasks.map((t) => (t.id === task.id ? updated : t)));
     });
   }
+
+  addTask(task: Task) {
+  this.taskService.addTask(task).subscribe((newTask) => {
+    this.tasks.update((tasks) => [...tasks, newTask]);
+  });
+}
 }

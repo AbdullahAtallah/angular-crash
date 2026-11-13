@@ -19,10 +19,10 @@
       "reminder": false
     },
     {
-      "id": "4",
-      "text": "Test",
-      "day": "May 7th at 12:30pm",
-      "reminder": false
+      "text": "Clean",
+      "day": "Sep 11th at 5:10pm",
+      "reminder": false,
+      "id": "-uvHdwSnN7A"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
